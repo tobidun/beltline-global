@@ -1,65 +1,417 @@
+import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
+import { SiteShell } from "@/components/site-shell";
+
+export const metadata: Metadata = {
+  title: "Home",
+  description:
+    "Beltline Global Services Limited offers reliable consulting, IT, logistics, supplies, events, and property services across Nigeria.",
+};
+
+const services = [
+  {
+    title: "Consulting",
+    description:
+      "Business advisory, strategic planning, project management, educational consultancy, training, and strategy support for growth-focused organizations.",
+    icon: "💼",
+  },
+  {
+    title: "IT Services",
+    description:
+      "Software development, website design, computer training, digital marketing, data analysis, and dependable IT support services.",
+    icon: "💻",
+  },
+  {
+    title: "Logistics",
+    description:
+      "Reliable transport, haulage, supply chain coordination, and distribution support delivered with accountability and speed.",
+    icon: "🚚",
+  },
+  {
+    title: "Supplies",
+    description:
+      "General trading, import and export, sourcing of equipment, stationery, electronics, food items, clothing, and other merchandise.",
+    icon: "📦",
+  },
+  {
+    title: "Events",
+    description:
+      "Professional event planning, venue sourcing, catering coordination, decorations, and hospitality services for memorable occasions.",
+    icon: "🎉",
+  },
+  {
+    title: "Property",
+    description:
+      "Property development support, real estate facilitation, facility management, cleaning, and building maintenance services with attention to detail.",
+    icon: "🏢",
+  },
+];
+
+const stats = [
+  { value: "10+", label: "Clients Served" },
+  { value: "50+", label: "Projects Delivered" },
+  { value: "100%", label: "Client Satisfaction" },
+];
+
+const projects = [
+  {
+    title: "Operational Transformation",
+    tag: "Consulting",
+    summary:
+      "Structured advisory support that improved planning, coordination, and execution clarity across a fast-moving engagement.",
+    cover:
+      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    title: "Digital Rollout Support",
+    tag: "IT Services",
+    summary:
+      "A practical technology support initiative focused on smoother implementation, stronger communication, and easier adoption.",
+    cover:
+      "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    title: "Logistics Coordination",
+    tag: "Logistics",
+    summary:
+      "Reliable delivery and coordination support that helped keep operations steady and service expectations aligned.",
+    cover:
+      "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1200&q=80",
+  },
+];
+
+const testimonials = [
+  {
+    quote:
+      "Beltline Global Services delivered excellent IT training and professional support for our team.",
+    author: "A. Yusuf",
+    role: "Operations Lead",
+    image:
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80",
+  },
+  {
+    quote:
+      "Their logistics and supply coordination were prompt, transparent, and dependable across every assignment.",
+    author: "S. Bamidele",
+    role: "Project Manager",
+    image:
+      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80",
+  },
+  {
+    quote:
+      "The team was thoughtful, responsive, and committed to seeing our delivery goals through.",
+    author: "M. Okafor",
+    role: "Operations Director",
+    image:
+      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=200&q=80",
+  },
+  {
+    quote:
+      "Every engagement felt organized, professional, and focused on real business outcomes.",
+    author: "T. Ibrahim",
+    role: "Business Consultant",
+    image:
+      "https://images.unsplash.com/photo-1507591064344-4c6ce005b128?auto=format&fit=crop&w=200&q=80",
+  },
+  {
+    quote:
+      "We appreciated the calm approach, clear updates, and dependable follow-through on every request.",
+    author: "R. Bello",
+    role: "Program Coordinator",
+    image:
+      "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=200&q=80",
+  },
+  {
+    quote:
+      "Their support helped our team stay confident, informed, and aligned throughout the project.",
+    author: "K. Adeyemi",
+    role: "Senior Manager",
+    image:
+      "https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&w=200&q=80",
+  },
+];
+
+const posts = [
+  {
+    slug: "partnerships-business-resilience",
+    title:
+      "How modern businesses are improving efficiency with strategic partnerships",
+    category: "Insights",
+    excerpt:
+      "A closer look at why dependable partnerships strengthen execution and long-term resilience.",
+    cover:
+      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80",
+    readTime: "5 min read",
+  },
+  {
+    slug: "streamlined-logistics-operations",
+    title:
+      "Why reliable logistics support matters in today’s fast-moving market",
+    category: "News",
+    excerpt:
+      "Practical reasons operational coordination has become central to client satisfaction and delivery confidence.",
+    cover:
+      "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1200&q=80",
+    readTime: "4 min read",
+  },
+  {
+    slug: "technology-support-service-delivery",
+    title:
+      "The value of integrated consulting and technology support for growth",
+    category: "Articles",
+    excerpt:
+      "How aligned advisory and digital support create a stronger foundation for sustainable growth.",
+    cover:
+      "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1200&q=80",
+    readTime: "6 min read",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <SiteShell
+      title="Your reliable partner for consulting, IT, logistics, and property solutions."
+      intro="Beltline Global Services Limited is a registered company delivering excellence across Nigeria with a commitment to professionalism, integrity, and value."
+    >
+      <div className="space-y-20">
+        <section className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="rounded-3xl bg-[#1A2A44] p-8 text-white shadow-xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-300">
+              Trusted partner for business growth
+            </p>
+            <h2 className="mt-4 text-3xl font-semibold sm:text-4xl">
+              Professional support for organizations that value dependable
+              delivery.
+            </h2>
+            <p className="mt-6 text-base leading-8 text-slate-300">
+              We provide a wide range of services that help businesses and
+              institutions operate with confidence, accountability, and strong
+              execution.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <Link
+                href="/contact"
+                className="rounded-full bg-[#2B5FBF] px-6 py-3 font-semibold text-white transition hover:bg-[#214c9e]"
+              >
+                Get a Quote
+              </Link>
+              <Link
+                href="/services"
+                className="rounded-full border border-white/40 px-6 py-3 font-semibold text-white transition hover:bg-white/10"
+              >
+                Our Services
+              </Link>
+            </div>
+          </div>
+
+          <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#2B5FBF]">
+              Why choose us
+            </p>
+            <ul className="mt-6 space-y-4 text-sm leading-7 text-slate-600">
+              <li>
+                • Registered and trusted in the Nigerian business environment.
+              </li>
+              <li>
+                • Flexible services spanning consulting, training, IT,
+                logistics, trading, events, and property development.
+              </li>
+              <li>
+                • Focused on delivering measurable value and lasting
+                partnerships.
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <div className="max-w-2xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#2B5FBF]">
+              Our services
+            </p>
+            <h2 className="mt-3 text-3xl font-semibold text-[#1A2A44] sm:text-4xl">
+              Professional support for every stage of growth.
+            </h2>
+          </div>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {services.map((service) => (
+              <article
+                key={service.title}
+                className="rounded-2xl border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+              >
+                <div className="text-4xl">{service.icon}</div>
+                <h3 className="mt-4 text-xl font-semibold text-[#1A2A44]">
+                  {service.title}
+                </h3>
+                <p className="mt-3 text-sm leading-7 text-slate-600">
+                  {service.description}
+                </p>
+                <Link
+                  href="/services"
+                  className="mt-5 inline-flex text-sm font-semibold text-[#2B5FBF] hover:text-[#214c9e]"
+                >
+                  Learn more →
+                </Link>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="rounded-3xl bg-[#1A2A44] py-16 text-white">
+          <div className="mx-auto grid max-w-6xl gap-8 px-6 md:grid-cols-3">
+            {stats.map((stat) => (
+              <div
+                key={stat.label}
+                className="rounded-2xl border border-white/10 bg-white/10 p-8 text-center backdrop-blur"
+              >
+                <p className="text-4xl font-semibold text-white">
+                  {stat.value}
+                </p>
+                <p className="mt-2 text-sm uppercase tracking-[0.25em] text-slate-300">
+                  {stat.label}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section>
+          <div className="max-w-2xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#2B5FBF]">
+              Projects
+            </p>
+            <h2 className="mt-3 text-3xl font-semibold text-[#1A2A44] sm:text-4xl">
+              Selected work that reflects our commitment to delivery.
+            </h2>
+          </div>
+
+          <div className="mt-12 grid gap-6 lg:grid-cols-3">
+            {projects.map((project) => (
+              <article
+                key={project.title}
+                className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+              >
+                <div className="relative h-40 w-full">
+                  <Image
+                    src={project.cover}
+                    alt={project.title}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-6">
+                  <p className="text-sm font-semibold uppercase tracking-[0.25em] text-[#2B5FBF]">
+                    {project.tag}
+                  </p>
+                  <h3 className="mt-3 text-xl font-semibold text-[#1A2A44]">
+                    {project.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-7 text-slate-600">
+                    {project.summary}
+                  </p>
+                  <Link
+                    href="/projects"
+                    className="mt-4 inline-flex text-sm font-semibold text-[#2B5FBF] hover:text-[#214c9e]"
+                  >
+                    View project →
+                  </Link>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section>
+          <div className="max-w-2xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#2B5FBF]">
+              Testimonials
+            </p>
+            <h2 className="mt-3 text-3xl font-semibold text-[#1A2A44] sm:text-4xl">
+              What clients say about our work.
+            </h2>
+          </div>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {testimonials.map((item) => (
+              <blockquote
+                key={item.author}
+                className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+              >
+                <p className="text-lg leading-8 text-slate-600">
+                  “{item.quote}”
+                </p>
+                <footer className="mt-6 flex items-center gap-3">
+                  <div className="relative h-11 w-11 overflow-hidden rounded-full border border-slate-200">
+                    <Image
+                      src={item.image}
+                      alt={item.author}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-[#1A2A44]">
+                      {item.author}
+                    </p>
+                    <p className="text-sm text-slate-500">{item.role}</p>
+                  </div>
+                </footer>
+              </blockquote>
+            ))}
+          </div>
+        </section>
+
+        <section>
+          <div className="max-w-2xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#2B5FBF]">
+              Latest news
+            </p>
+            <h2 className="mt-3 text-3xl font-semibold text-[#1A2A44] sm:text-4xl">
+              Insights and updates from the Beltline team.
+            </h2>
+          </div>
+
+          <div className="mt-12 grid gap-6 lg:grid-cols-3">
+            {posts.map((post) => (
+              <article
+                key={post.title}
+                className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+              >
+                <div className="relative h-48 w-full">
+                  <Image
+                    src={post.cover}
+                    alt={post.title}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-7">
+                  <div className="flex items-center gap-2 text-sm text-slate-500">
+                    <span className="rounded-full bg-slate-100 px-3 py-1 font-semibold uppercase tracking-[0.2em] text-[#2B5FBF]">
+                      {post.category}
+                    </span>
+                    <span>{post.readTime}</span>
+                  </div>
+                  <h3 className="mt-4 text-xl font-semibold text-[#1A2A44]">
+                    {post.title}
+                  </h3>
+                  <p className="mt-4 text-base leading-8 text-slate-600">
+                    {post.excerpt}
+                  </p>
+                  <Link
+                    href={`/blog/${post.slug}`}
+                    className="mt-5 inline-flex text-sm font-semibold text-[#2B5FBF] hover:text-[#214c9e]"
+                  >
+                    Read article →
+                  </Link>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+      </div>
+    </SiteShell>
   );
 }
