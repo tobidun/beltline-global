@@ -24,9 +24,9 @@ export function BlogList({ posts }: { posts: BlogPost[] }) {
 
   return (
     <>
-      <div className="mb-8 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 shadow-sm">
+      <div className="mb-8 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
         <label
-          className="text-sm font-medium text-slate-600 dark:text-slate-400"
+          className="text-sm font-medium text-slate-600"
           htmlFor="blog-search"
         >
           Search articles
@@ -36,7 +36,7 @@ export function BlogList({ posts }: { posts: BlogPost[] }) {
           value={query}
           onChange={(event) => setQuery(event.target.value)}
           placeholder="Search by topic, category, or author"
-          className="mt-2 w-full rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 px-4 py-3 outline-none focus:border-[#2B5FBF] text-slate-800 dark:text-slate-100"
+          className="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-[#2B5FBF]"
         />
       </div>
 
@@ -44,7 +44,7 @@ export function BlogList({ posts }: { posts: BlogPost[] }) {
         {filteredPosts.map((post) => (
           <article
             key={post.slug}
-            className="overflow-hidden rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+            className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
           >
             <div className="relative h-48 w-full">
               <Image
@@ -55,21 +55,21 @@ export function BlogList({ posts }: { posts: BlogPost[] }) {
               />
             </div>
             <div className="p-7">
-              <div className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
-                <span className="rounded-full bg-slate-100 dark:bg-slate-800 px-3 py-1 font-semibold uppercase tracking-[0.2em] text-[#2B5FBF] dark:text-[#60a5fa]">
+              <div className="flex items-center gap-2 text-sm text-slate-500">
+                <span className="rounded-full bg-slate-100 px-3 py-1 font-semibold uppercase tracking-[0.2em] text-[#2B5FBF]">
                   {post.category}
                 </span>
                 <span>{post.readTime}</span>
               </div>
-              <h2 className="mt-4 text-xl font-semibold text-[#1A2A44] dark:text-slate-100">
+              <h2 className="mt-4 text-xl font-semibold text-[#1A2A44]">
                 {post.title}
               </h2>
-              <p className="mt-4 text-base leading-8 text-slate-600 dark:text-slate-300">
+              <p className="mt-4 text-base leading-8 text-slate-600">
                 {post.excerpt}
               </p>
               <Link
                 href={`/blog/${post.slug}`}
-                className="mt-5 inline-flex text-sm font-semibold text-[#2B5FBF] dark:text-[#60a5fa] hover:text-[#214c9e] dark:hover:text-[#93c5fd]"
+                className="mt-5 inline-flex text-sm font-semibold text-[#2B5FBF] hover:text-[#214c9e]"
               >
                 Read article →
               </Link>
@@ -79,7 +79,7 @@ export function BlogList({ posts }: { posts: BlogPost[] }) {
       </div>
 
       {filteredPosts.length === 0 ? (
-        <p className="mt-8 rounded-2xl border border-dashed border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-8 text-center text-sm text-slate-600 dark:text-slate-400">
+        <p className="mt-8 rounded-2xl border border-dashed border-slate-200 bg-white p-8 text-center text-sm text-slate-600">
           No matching articles were found. Try a broader search.
         </p>
       ) : null}

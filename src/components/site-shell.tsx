@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect, type ReactNode } from "react";
 import Image from "next/image";
+import { AnimatePresence, motion } from "framer-motion";
 import { ChatbotWidget } from "@/components/chatbot-widget";
 
 const navItems = [
@@ -37,6 +38,14 @@ export function SiteShell({
     setTheme(isDark ? "dark" : "light");
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileOpen]);
+
   const toggleTheme = () => {
     const nextTheme = theme === "light" ? "dark" : "light";
     setTheme(nextTheme);
@@ -60,7 +69,9 @@ export function SiteShell({
               <p className="text-sm font-semibold uppercase tracking-[0.25em] text-[#1A2A44] dark:text-slate-100">
                 Beltline Global
               </p>
-              <p className="text-xs text-slate-500 dark:text-slate-400">Services Limited</p>
+              <p className="text-xs text-slate-500 dark:text-slate-400">
+                Services Limited
+              </p>
             </div>
           </Link>
 
@@ -71,8 +82,11 @@ export function SiteShell({
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`transition hover:text-[#2B5FBF] dark:hover:text-[#60a5fa] ${isActive ? "font-semibold text-[#2B5FBF] dark:text-[#60a5fa]" : ""
-                    }`}
+                  className={`transition hover:text-[#2B5FBF] dark:hover:text-[#60a5fa] ${
+                    isActive
+                      ? "font-semibold text-[#2B5FBF] dark:text-[#60a5fa]"
+                      : ""
+                  }`}
                 >
                   {item.label}
                 </Link>
@@ -89,13 +103,25 @@ export function SiteShell({
                 className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 shadow-sm transition hover:border-[#2B5FBF] hover:text-[#2B5FBF] dark:hover:border-[#60a5fa] dark:hover:text-[#60a5fa]"
               >
                 {theme === "dark" ? (
-                  <svg className="h-5 w-5 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
+                  <svg
+                    className="h-5 w-5 fill-none stroke-current stroke-2"
+                    viewBox="0 0 24 24"
+                  >
                     <circle cx="12" cy="12" r="4" />
-                    <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" strokeLinecap="round" />
+                    <path
+                      d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"
+                      strokeLinecap="round"
+                    />
                   </svg>
                 ) : (
-                  <svg className="h-5 w-5 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
-                    <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" strokeLinecap="round" />
+                  <svg
+                    className="h-5 w-5 fill-none stroke-current stroke-2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"
+                      strokeLinecap="round"
+                    />
                   </svg>
                 )}
               </button>
@@ -103,56 +129,83 @@ export function SiteShell({
               <div className="h-10 w-10 rounded-full border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm" />
             )}
 
-            <Link
-              href="/contact"
-              className="hidden rounded-full bg-[#2B5FBF] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#214c9e] sm:inline-flex"
-            >
-              Request a Quote
-            </Link>
+            <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.97 }}>
+              <Link
+                href="/contact"
+                className="hidden rounded-full bg-[#2B5FBF] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#214c9e] sm:inline-flex"
+              >
+                Request a Quote
+              </Link>
+            </motion.div>
 
-            <button
+            <motion.button
               type="button"
               aria-label="Toggle navigation menu"
               aria-expanded={mobileOpen}
               onClick={() => setMobileOpen((open) => !open)}
+              whileTap={{ scale: 0.95 }}
               className="rounded-full border border-slate-200 dark:border-slate-800 p-2.5 text-slate-700 dark:text-slate-300 transition hover:border-[#2B5FBF] hover:text-[#2B5FBF] dark:hover:border-[#60a5fa] dark:hover:text-[#60a5fa] lg:hidden"
             >
-              <svg
-                viewBox="0 0 24 24"
-                className="h-5 w-5 fill-none stroke-current stroke-2"
-              >
-                <path d="M4 7h16M4 12h16M4 17h16" strokeLinecap="round" />
-              </svg>
-            </button>
+              {mobileOpen ? (
+                <svg
+                  viewBox="0 0 24 24"
+                  className="h-5 w-5 fill-none stroke-current stroke-2"
+                >
+                  <path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" />
+                </svg>
+              ) : (
+                <svg
+                  viewBox="0 0 24 24"
+                  className="h-5 w-5 fill-none stroke-current stroke-2"
+                >
+                  <path d="M4 7h16M4 12h16M4 17h16" strokeLinecap="round" />
+                </svg>
+              )}
+            </motion.button>
           </div>
 
-          {mobileOpen ? (
-            <div className="absolute left-0 right-0 top-full z-20 mt-3 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 shadow-lg lg:hidden">
-              <nav className="flex flex-col gap-3 text-sm font-medium text-slate-700 dark:text-slate-300">
-                {navItems.map((item) => {
-                  const isActive = pathname === item.href;
-                  return (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      onClick={() => setMobileOpen(false)}
-                      className={`rounded-xl px-3 py-2 transition ${isActive
-                        ? "bg-slate-100 dark:bg-slate-800 text-[#2B5FBF] dark:text-[#60a5fa]"
-                        : "hover:bg-slate-50 dark:hover:bg-slate-800"
-                        }`}
-                    >
-                      {item.label}
-                    </Link>
-                  );
-                })}
-              </nav>
-            </div>
-          ) : null}
+          <AnimatePresence>
+            {mobileOpen ? (
+              <motion.div
+                initial={{ opacity: 0, y: -8, height: 0 }}
+                animate={{ opacity: 1, y: 0, height: "auto" }}
+                exit={{ opacity: 0, y: -8, height: 0 }}
+                transition={{ duration: 0.2, ease: "easeOut" }}
+                className="absolute left-0 right-0 top-full z-20 mt-3 overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 shadow-lg lg:hidden"
+              >
+                <nav className="flex flex-col gap-3 text-sm font-medium text-slate-700 dark:text-slate-300">
+                  {navItems.map((item) => {
+                    const isActive = pathname === item.href;
+                    return (
+                      <motion.div key={item.href} whileTap={{ scale: 0.98 }}>
+                        <Link
+                          href={item.href}
+                          onClick={() => setMobileOpen(false)}
+                          className={`block rounded-xl px-3 py-2 transition ${
+                            isActive
+                              ? "bg-slate-100 dark:bg-slate-800 text-[#2B5FBF] dark:text-[#60a5fa]"
+                              : "hover:bg-slate-50 dark:hover:bg-slate-800"
+                          }`}
+                        >
+                          {item.label}
+                        </Link>
+                      </motion.div>
+                    );
+                  })}
+                </nav>
+              </motion.div>
+            ) : null}
+          </AnimatePresence>
         </div>
       </header>
 
       <main>
-        <section className="relative overflow-hidden py-16 text-white sm:py-20">
+        <motion.section
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="relative overflow-hidden py-16 text-white sm:py-20"
+        >
           {bgImage ? (
             <>
               <div className="absolute inset-0 z-0">
@@ -170,17 +223,32 @@ export function SiteShell({
             <div className="absolute inset-0 z-0 bg-gradient-to-br from-[#1A2A44] via-[#223a5a] to-[#2B5FBF]" />
           )}
           <div className="relative z-10 mx-auto max-w-7xl px-4 lg:px-6">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-200">
+            <motion.p
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1, duration: 0.5 }}
+              className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-200"
+            >
               Beltline Global Services Limited
-            </p>
-            <h1 className="mt-4 max-w-3xl animate-[fade-in-up_0.6s_ease-out] font-[family-name:var(--font-montserrat)] text-3xl font-semibold sm:text-4xl">
+            </motion.p>
+            <motion.h1
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.16, duration: 0.6 }}
+              className="mt-4 max-w-3xl font-[family-name:var(--font-montserrat)] text-3xl font-semibold sm:text-4xl lg:whitespace-nowrap"
+            >
               {title}
-            </h1>
-            <p className="mt-4 max-w-2xl text-lg leading-8 text-slate-200">
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.22, duration: 0.6 }}
+              className="mt-4 max-w-2xl text-lg leading-8 text-slate-200"
+            >
               {intro}
-            </p>
+            </motion.p>
           </div>
-        </section>
+        </motion.section>
 
         <div className="mx-auto max-w-7xl px-4 py-16 sm:py-20 lg:px-6">
           {children}

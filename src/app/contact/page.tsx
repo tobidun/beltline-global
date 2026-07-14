@@ -86,12 +86,33 @@ export default function ContactPage() {
                 <br />
                 Email: adam_i41@yahoo.com
               </p>
-              <div className="mt-8 h-48 rounded-2xl border border-white/10 bg-gradient-to-br from-[#2B5FBF] to-[#1A2A44]" />
+              <div className="mt-6 flex flex-wrap gap-3 text-sm font-semibold">
+                <a href="tel:+2348125097090" className="rounded-full border border-white/20 bg-white/10 px-4 py-2 transition hover:bg-white/20">
+                  Call now
+                </a>
+                <a href="https://wa.me/2348125097090" target="_blank" rel="noreferrer" className="rounded-full border border-white/20 bg-white/10 px-4 py-2 transition hover:bg-white/20">
+                  WhatsApp
+                </a>
+              </div>
+              <div className="mt-6 rounded-2xl border border-white/10 bg-white/10 p-4 text-sm text-slate-200">
+                Office hours: Monday to Friday, 8:00am – 6:00pm
+              </div>
+              <div className="mt-8 overflow-hidden rounded-2xl border border-white/10">
+                <iframe
+                  title="Beltline Global office location"
+                  src="https://www.google.com/maps?q=Shop+4,+Bangor+Estate+Junction,+Kulende,+Ilorin,+Kwara+State&z=14&output=embed"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="h-56 w-full"
+                />
+              </div>
             </div>
           </div>
 
           <div className="rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-8 shadow-sm">
-            <h2 className="text-2xl font-semibold text-[#1A2A44] dark:text-slate-100">FAQs</h2>
+            <h2 className="text-2xl font-semibold text-[#1A2A44] dark:text-slate-100">
+              FAQs
+            </h2>
             <div className="mt-6 space-y-4">
               {faqs.map((item) => (
                 <div

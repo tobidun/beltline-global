@@ -177,6 +177,30 @@ export default function Home() {
     >
       <div className="space-y-20">
         <section className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-8 shadow-sm">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#2B5FBF] dark:text-[#60a5fa]">
+              Why choose us
+            </p>
+            <h2 className="mt-3 text-2xl font-semibold text-[#1A2A44] dark:text-slate-100">
+              Trusted by clients who value clarity, speed, and dependable
+              execution.
+            </h2>
+            <div className="mt-6 grid gap-4 sm:grid-cols-2">
+              {[
+                "Registered business with a strong local presence",
+                "Flexible support across consulting, IT, logistics, and property services",
+                "Transparent communication and responsive follow-through",
+                "Practical solutions tailored to real delivery needs",
+              ].map((item) => (
+                <div
+                  key={item}
+                  className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 p-4 text-sm leading-7 text-slate-600 dark:text-slate-300"
+                >
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
           <div className="relative overflow-hidden rounded-3xl p-8 text-white shadow-xl">
             <div className="absolute inset-0 z-0">
               <Image
@@ -216,25 +240,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-
-          <div className="rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-8 shadow-sm">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#2B5FBF] dark:text-[#60a5fa]">
-              Why choose us
-            </p>
-            <ul className="mt-6 space-y-4 text-sm leading-7 text-slate-600 dark:text-slate-300">
-              <li>
-                • Registered and trusted in the Nigerian business environment.
-              </li>
-              <li>
-                • Flexible services spanning consulting, training, IT,
-                logistics, trading, events, and property development.
-              </li>
-              <li>
-                • Focused on delivering measurable value and lasting
-                partnerships.
-              </li>
-            </ul>
-          </div>
         </section>
 
         <section>
@@ -242,7 +247,7 @@ export default function Home() {
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#2B5FBF] dark:text-[#60a5fa]">
               Our services
             </p>
-            <h2 className="mt-3 text-3xl font-semibold text-[#1A2A44] dark:text-slate-100 sm:text-4xl">
+            <h2 className="mt-3 text-3xl font-semibold text-[#1A2A44] dark:text-slate-100 sm:text-4xl lg:whitespace-nowrap">
               Professional support for every stage of growth.
             </h2>
           </div>
@@ -303,7 +308,7 @@ export default function Home() {
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#2B5FBF] dark:text-[#60a5fa]">
               Projects
             </p>
-            <h2 className="mt-3 text-3xl font-semibold text-[#1A2A44] dark:text-slate-100 sm:text-4xl">
+            <h2 className="mt-3 text-3xl font-semibold text-[#1A2A44] dark:text-slate-100 sm:text-4xl lg:whitespace-nowrap">
               Selected work that reflects our commitment to delivery.
             </h2>
           </div>
@@ -345,11 +350,38 @@ export default function Home() {
         </section>
 
         <section>
+          <div className="rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-8 shadow-sm">
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="rounded-full bg-slate-100 dark:bg-slate-800 px-3 py-1 text-sm font-semibold uppercase tracking-[0.25em] text-[#2B5FBF] dark:text-[#60a5fa]">
+                Trusted by businesses
+              </span>
+              <span className="text-sm text-slate-500 dark:text-slate-400">
+                Consulting • IT • Logistics • Property
+              </span>
+            </div>
+            <div className="mt-6 grid gap-4 md:grid-cols-3">
+              {[
+                "Professional delivery",
+                "Responsive support",
+                "Clear communication",
+              ].map((item) => (
+                <div
+                  key={item}
+                  className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 p-4 text-center text-sm font-semibold text-[#1A2A44] dark:text-slate-100"
+                >
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section>
           <div className="max-w-2xl">
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#2B5FBF] dark:text-[#60a5fa]">
               Testimonials
             </p>
-            <h2 className="mt-3 text-3xl font-semibold text-[#1A2A44] dark:text-slate-100 sm:text-4xl">
+            <h2 className="mt-3 text-3xl font-semibold text-[#1A2A44] dark:text-slate-100 sm:text-4xl lg:whitespace-nowrap">
               What clients say about our work.
             </h2>
           </div>
@@ -376,7 +408,9 @@ export default function Home() {
                     <p className="font-semibold text-[#1A2A44] dark:text-slate-100">
                       {item.author}
                     </p>
-                    <p className="text-sm text-slate-500 dark:text-slate-400">{item.role}</p>
+                    <p className="text-sm text-slate-500 dark:text-slate-400">
+                      {item.role}
+                    </p>
                   </div>
                 </footer>
               </blockquote>
@@ -389,7 +423,7 @@ export default function Home() {
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#2B5FBF] dark:text-[#60a5fa]">
               Latest news
             </p>
-            <h2 className="mt-3 text-3xl font-semibold text-[#1A2A44] dark:text-slate-100 sm:text-4xl">
+            <h2 className="mt-3 text-3xl font-semibold text-[#1A2A44] dark:text-slate-100 sm:text-4xl lg:whitespace-nowrap">
               Insights and updates from the Beltline team.
             </h2>
           </div>
