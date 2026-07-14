@@ -32,26 +32,26 @@ export function ContactForm() {
   return (
     <form className="mt-8 grid gap-4 sm:grid-cols-2" onSubmit={handleSubmit}>
       <input
-        className="rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-[#2B5FBF]"
+        className="rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 py-3 outline-none focus:border-[#2B5FBF] text-slate-800 dark:text-slate-100"
         placeholder="Name"
         value={form.name}
         onChange={(event) => setForm({ ...form, name: event.target.value })}
       />
       <input
-        className="rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-[#2B5FBF]"
+        className="rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 py-3 outline-none focus:border-[#2B5FBF] text-slate-800 dark:text-slate-100"
         placeholder="Email"
         type="email"
         value={form.email}
         onChange={(event) => setForm({ ...form, email: event.target.value })}
       />
       <input
-        className="rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-[#2B5FBF] sm:col-span-2"
+        className="rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 py-3 outline-none focus:border-[#2B5FBF] text-slate-800 dark:text-slate-100 sm:col-span-2"
         placeholder="Phone"
         value={form.phone}
         onChange={(event) => setForm({ ...form, phone: event.target.value })}
       />
       <textarea
-        className="min-h-32 rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-[#2B5FBF] sm:col-span-2"
+        className="min-h-32 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 py-3 outline-none focus:border-[#2B5FBF] text-slate-800 dark:text-slate-100 sm:col-span-2"
         placeholder="Message"
         value={form.message}
         onChange={(event) => setForm({ ...form, message: event.target.value })}

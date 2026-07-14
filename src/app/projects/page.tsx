@@ -14,6 +14,7 @@ export default function ProjectsPage() {
     <SiteShell
       title="Projects"
       intro="Our recent work reflects a consistent commitment to professional delivery, responsiveness, and results-oriented collaboration."
+      bgImage="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=2000&q=80"
     >
       <ProjectList projects={projects} />
     </SiteShell>

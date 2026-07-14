@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState, type ReactNode } from "react";
+import { useState, useEffect, type ReactNode } from "react";
+import Image from "next/image";
 import { ChatbotWidget } from "@/components/chatbot-widget";
 
 const navItems = [
@@ -18,40 +19,60 @@ export function SiteShell({
   children,
   title,
   intro,
+  bgImage,
 }: {
   children: ReactNode;
   title: string;
   intro: string;
+  bgImage?: string;
 }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname();
+  const [theme, setTheme] = useState<"light" | "dark">("light");
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    const isDark = document.documentElement.classList.contains("dark");
+    setTheme(isDark ? "dark" : "light");
+  }, []);
+
+  const toggleTheme = () => {
+    const nextTheme = theme === "light" ? "dark" : "light";
+    setTheme(nextTheme);
+    localStorage.setItem("theme", nextTheme);
+    if (nextTheme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  };
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-800">
-      <header className="border-b border-slate-200 bg-white/90 backdrop-blur">
-        <div className="relative mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-8">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-200 transition-colors duration-200">
+      <header className="border-b border-slate-200 dark:border-slate-800 bg-white/90 dark:bg-slate-900/90 backdrop-blur sticky top-0 z-30">
+        <div className="relative mx-auto flex max-w-7xl items-center justify-between px-2 py-5 lg:px-4">
           <Link href="/" className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#1A2A44] text-lg font-semibold text-white">
+            <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#1A2A44] dark:bg-[#2B5FBF] text-lg font-semibold text-white">
               BG
             </div>
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-[#1A2A44]">
+              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-[#1A2A44] dark:text-slate-100">
                 Beltline Global
               </p>
-              <p className="text-xs text-slate-500">Services Limited</p>
+              <p className="text-xs text-slate-500 dark:text-slate-400">Services Limited</p>
             </div>
           </Link>
 
-          <nav className="hidden items-center gap-7 text-sm font-medium text-slate-700 lg:flex">
+          <nav className="hidden items-center gap-7 text-sm font-medium text-slate-700 dark:text-slate-300 lg:flex">
             {navItems.map((item) => {
               const isActive = pathname === item.href;
               return (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`transition hover:text-[#2B5FBF] ${
-                    isActive ? "font-semibold text-[#2B5FBF]" : ""
-                  }`}
+                  className={`transition hover:text-[#2B5FBF] dark:hover:text-[#60a5fa] ${isActive ? "font-semibold text-[#2B5FBF] dark:text-[#60a5fa]" : ""
+                    }`}
                 >
                   {item.label}
                 </Link>
@@ -60,6 +81,28 @@ export function SiteShell({
           </nav>
 
           <div className="flex items-center gap-3">
+            {mounted ? (
+              <button
+                type="button"
+                onClick={toggleTheme}
+                aria-label="Toggle theme"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 shadow-sm transition hover:border-[#2B5FBF] hover:text-[#2B5FBF] dark:hover:border-[#60a5fa] dark:hover:text-[#60a5fa]"
+              >
+                {theme === "dark" ? (
+                  <svg className="h-5 w-5 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="4" />
+                    <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" strokeLinecap="round" />
+                  </svg>
+                ) : (
+                  <svg className="h-5 w-5 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
+                    <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" strokeLinecap="round" />
+                  </svg>
+                )}
+              </button>
+            ) : (
+              <div className="h-10 w-10 rounded-full border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm" />
+            )}
+
             <Link
               href="/contact"
               className="hidden rounded-full bg-[#2B5FBF] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#214c9e] sm:inline-flex"
@@ -72,7 +115,7 @@ export function SiteShell({
               aria-label="Toggle navigation menu"
               aria-expanded={mobileOpen}
               onClick={() => setMobileOpen((open) => !open)}
-              className="rounded-full border border-slate-200 p-2.5 text-slate-700 transition hover:border-[#2B5FBF] hover:text-[#2B5FBF] lg:hidden"
+              className="rounded-full border border-slate-200 dark:border-slate-800 p-2.5 text-slate-700 dark:text-slate-300 transition hover:border-[#2B5FBF] hover:text-[#2B5FBF] dark:hover:border-[#60a5fa] dark:hover:text-[#60a5fa] lg:hidden"
             >
               <svg
                 viewBox="0 0 24 24"
@@ -84,8 +127,8 @@ export function SiteShell({
           </div>
 
           {mobileOpen ? (
-            <div className="absolute left-0 right-0 top-full z-20 mt-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-lg lg:hidden">
-              <nav className="flex flex-col gap-3 text-sm font-medium text-slate-700">
+            <div className="absolute left-0 right-0 top-full z-20 mt-3 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 shadow-lg lg:hidden">
+              <nav className="flex flex-col gap-3 text-sm font-medium text-slate-700 dark:text-slate-300">
                 {navItems.map((item) => {
                   const isActive = pathname === item.href;
                   return (
@@ -93,11 +136,10 @@ export function SiteShell({
                       key={item.href}
                       href={item.href}
                       onClick={() => setMobileOpen(false)}
-                      className={`rounded-xl px-3 py-2 transition ${
-                        isActive
-                          ? "bg-slate-100 text-[#2B5FBF]"
-                          : "hover:bg-slate-50"
-                      }`}
+                      className={`rounded-xl px-3 py-2 transition ${isActive
+                        ? "bg-slate-100 dark:bg-slate-800 text-[#2B5FBF] dark:text-[#60a5fa]"
+                        : "hover:bg-slate-50 dark:hover:bg-slate-800"
+                        }`}
                     >
                       {item.label}
                     </Link>
@@ -110,8 +152,24 @@ export function SiteShell({
       </header>
 
       <main>
-        <section className="bg-gradient-to-br from-[#1A2A44] via-[#223a5a] to-[#2B5FBF] py-16 text-white sm:py-20">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <section className="relative overflow-hidden py-16 text-white sm:py-20">
+          {bgImage ? (
+            <>
+              <div className="absolute inset-0 z-0">
+                <Image
+                  src={bgImage}
+                  alt={title}
+                  fill
+                  priority
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#1A2A44]/95 via-[#1A2A44]/80 to-transparent" />
+              </div>
+            </>
+          ) : (
+            <div className="absolute inset-0 z-0 bg-gradient-to-br from-[#1A2A44] via-[#223a5a] to-[#2B5FBF]" />
+          )}
+          <div className="relative z-10 mx-auto max-w-7xl px-4 lg:px-6">
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-200">
               Beltline Global Services Limited
             </p>
@@ -124,7 +182,7 @@ export function SiteShell({
           </div>
         </section>
 
-        <div className="mx-auto max-w-7xl px-6 py-16 sm:py-20 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:py-20 lg:px-6">
           {children}
         </div>
       </main>
@@ -132,7 +190,7 @@ export function SiteShell({
       <ChatbotWidget />
 
       <footer className="bg-[#1A2A44] py-12 text-white">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 lg:px-6">
           <div className="flex flex-col gap-8 border-b border-white/10 pb-8 md:flex-row md:items-start md:justify-between">
             <div>
               <p className="font-[family-name:var(--font-montserrat)] text-2xl font-semibold">

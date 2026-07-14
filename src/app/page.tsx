@@ -173,43 +173,55 @@ export default function Home() {
     <SiteShell
       title="Your reliable partner for consulting, IT, logistics, and property solutions."
       intro="Beltline Global Services Limited is a registered company delivering excellence across Nigeria with a commitment to professionalism, integrity, and value."
+      bgImage="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2000&q=80"
     >
       <div className="space-y-20">
         <section className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
-          <div className="rounded-3xl bg-[#1A2A44] p-8 text-white shadow-xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-300">
-              Trusted partner for business growth
-            </p>
-            <h2 className="mt-4 text-3xl font-semibold sm:text-4xl">
-              Professional support for organizations that value dependable
-              delivery.
-            </h2>
-            <p className="mt-6 text-base leading-8 text-slate-300">
-              We provide a wide range of services that help businesses and
-              institutions operate with confidence, accountability, and strong
-              execution.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <Link
-                href="/contact"
-                className="rounded-full bg-[#2B5FBF] px-6 py-3 font-semibold text-white transition hover:bg-[#214c9e]"
-              >
-                Get a Quote
-              </Link>
-              <Link
-                href="/services"
-                className="rounded-full border border-white/40 px-6 py-3 font-semibold text-white transition hover:bg-white/10"
-              >
-                Our Services
-              </Link>
+          <div className="relative overflow-hidden rounded-3xl p-8 text-white shadow-xl">
+            <div className="absolute inset-0 z-0">
+              <Image
+                src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80"
+                alt="Business growth partner"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-[#1A2A44]/90" />
+            </div>
+            <div className="relative z-10">
+              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-300">
+                Trusted partner for business growth
+              </p>
+              <h2 className="mt-4 text-3xl font-semibold sm:text-4xl">
+                Professional support for organizations that value dependable
+                delivery.
+              </h2>
+              <p className="mt-6 text-base leading-8 text-slate-300">
+                We provide a wide range of services that help businesses and
+                institutions operate with confidence, accountability, and strong
+                execution.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-4">
+                <Link
+                  href="/contact"
+                  className="rounded-full bg-[#2B5FBF] px-6 py-3 font-semibold text-white transition hover:bg-[#214c9e]"
+                >
+                  Get a Quote
+                </Link>
+                <Link
+                  href="/services"
+                  className="rounded-full border border-white/40 px-6 py-3 font-semibold text-white transition hover:bg-white/10"
+                >
+                  Our Services
+                </Link>
+              </div>
             </div>
           </div>
 
-          <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#2B5FBF]">
+          <div className="rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-8 shadow-sm">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#2B5FBF] dark:text-[#60a5fa]">
               Why choose us
             </p>
-            <ul className="mt-6 space-y-4 text-sm leading-7 text-slate-600">
+            <ul className="mt-6 space-y-4 text-sm leading-7 text-slate-600 dark:text-slate-300">
               <li>
                 • Registered and trusted in the Nigerian business environment.
               </li>
@@ -227,10 +239,10 @@ export default function Home() {
 
         <section>
           <div className="max-w-2xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#2B5FBF]">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#2B5FBF] dark:text-[#60a5fa]">
               Our services
             </p>
-            <h2 className="mt-3 text-3xl font-semibold text-[#1A2A44] sm:text-4xl">
+            <h2 className="mt-3 text-3xl font-semibold text-[#1A2A44] dark:text-slate-100 sm:text-4xl">
               Professional support for every stage of growth.
             </h2>
           </div>
@@ -239,18 +251,18 @@ export default function Home() {
             {services.map((service) => (
               <article
                 key={service.title}
-                className="rounded-2xl border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+                className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
               >
                 <div className="text-4xl">{service.icon}</div>
-                <h3 className="mt-4 text-xl font-semibold text-[#1A2A44]">
+                <h3 className="mt-4 text-xl font-semibold text-[#1A2A44] dark:text-slate-100">
                   {service.title}
                 </h3>
-                <p className="mt-3 text-sm leading-7 text-slate-600">
+                <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">
                   {service.description}
                 </p>
                 <Link
                   href="/services"
-                  className="mt-5 inline-flex text-sm font-semibold text-[#2B5FBF] hover:text-[#214c9e]"
+                  className="mt-5 inline-flex text-sm font-semibold text-[#2B5FBF] dark:text-[#60a5fa] hover:text-[#214c9e] dark:hover:text-[#93c5fd]"
                 >
                   Learn more →
                 </Link>
@@ -259,12 +271,21 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="rounded-3xl bg-[#1A2A44] py-16 text-white">
-          <div className="mx-auto grid max-w-6xl gap-8 px-6 md:grid-cols-3">
+        <section className="relative overflow-hidden rounded-3xl py-16 text-white">
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80"
+              alt="Stats overview background"
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-[#1A2A44]/85" />
+          </div>
+          <div className="relative z-10 mx-auto grid max-w-6xl gap-8 px-4 md:grid-cols-3">
             {stats.map((stat) => (
               <div
                 key={stat.label}
-                className="rounded-2xl border border-white/10 bg-white/10 p-8 text-center backdrop-blur"
+                className="rounded-2xl border border-white/10 bg-white/10 p-8 text-center backdrop-blur-md"
               >
                 <p className="text-4xl font-semibold text-white">
                   {stat.value}
@@ -279,10 +300,10 @@ export default function Home() {
 
         <section>
           <div className="max-w-2xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#2B5FBF]">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#2B5FBF] dark:text-[#60a5fa]">
               Projects
             </p>
-            <h2 className="mt-3 text-3xl font-semibold text-[#1A2A44] sm:text-4xl">
+            <h2 className="mt-3 text-3xl font-semibold text-[#1A2A44] dark:text-slate-100 sm:text-4xl">
               Selected work that reflects our commitment to delivery.
             </h2>
           </div>
@@ -291,7 +312,7 @@ export default function Home() {
             {projects.map((project) => (
               <article
                 key={project.title}
-                className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+                className="overflow-hidden rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
               >
                 <div className="relative h-40 w-full">
                   <Image
@@ -302,18 +323,18 @@ export default function Home() {
                   />
                 </div>
                 <div className="p-6">
-                  <p className="text-sm font-semibold uppercase tracking-[0.25em] text-[#2B5FBF]">
+                  <p className="text-sm font-semibold uppercase tracking-[0.25em] text-[#2B5FBF] dark:text-[#60a5fa]">
                     {project.tag}
                   </p>
-                  <h3 className="mt-3 text-xl font-semibold text-[#1A2A44]">
+                  <h3 className="mt-3 text-xl font-semibold text-[#1A2A44] dark:text-slate-100">
                     {project.title}
                   </h3>
-                  <p className="mt-3 text-sm leading-7 text-slate-600">
+                  <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">
                     {project.summary}
                   </p>
                   <Link
                     href="/projects"
-                    className="mt-4 inline-flex text-sm font-semibold text-[#2B5FBF] hover:text-[#214c9e]"
+                    className="mt-4 inline-flex text-sm font-semibold text-[#2B5FBF] dark:text-[#60a5fa] hover:text-[#214c9e] dark:hover:text-[#93c5fd]"
                   >
                     View project →
                   </Link>
@@ -325,10 +346,10 @@ export default function Home() {
 
         <section>
           <div className="max-w-2xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#2B5FBF]">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#2B5FBF] dark:text-[#60a5fa]">
               Testimonials
             </p>
-            <h2 className="mt-3 text-3xl font-semibold text-[#1A2A44] sm:text-4xl">
+            <h2 className="mt-3 text-3xl font-semibold text-[#1A2A44] dark:text-slate-100 sm:text-4xl">
               What clients say about our work.
             </h2>
           </div>
@@ -337,13 +358,13 @@ export default function Home() {
             {testimonials.map((item) => (
               <blockquote
                 key={item.author}
-                className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+                className="rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-8 shadow-sm"
               >
-                <p className="text-lg leading-8 text-slate-600">
+                <p className="text-lg leading-8 text-slate-600 dark:text-slate-300">
                   “{item.quote}”
                 </p>
                 <footer className="mt-6 flex items-center gap-3">
-                  <div className="relative h-11 w-11 overflow-hidden rounded-full border border-slate-200">
+                  <div className="relative h-11 w-11 overflow-hidden rounded-full border border-slate-200 dark:border-slate-800">
                     <Image
                       src={item.image}
                       alt={item.author}
@@ -352,10 +373,10 @@ export default function Home() {
                     />
                   </div>
                   <div>
-                    <p className="font-semibold text-[#1A2A44]">
+                    <p className="font-semibold text-[#1A2A44] dark:text-slate-100">
                       {item.author}
                     </p>
-                    <p className="text-sm text-slate-500">{item.role}</p>
+                    <p className="text-sm text-slate-500 dark:text-slate-400">{item.role}</p>
                   </div>
                 </footer>
               </blockquote>
@@ -365,10 +386,10 @@ export default function Home() {
 
         <section>
           <div className="max-w-2xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#2B5FBF]">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#2B5FBF] dark:text-[#60a5fa]">
               Latest news
             </p>
-            <h2 className="mt-3 text-3xl font-semibold text-[#1A2A44] sm:text-4xl">
+            <h2 className="mt-3 text-3xl font-semibold text-[#1A2A44] dark:text-slate-100 sm:text-4xl">
               Insights and updates from the Beltline team.
             </h2>
           </div>
@@ -377,7 +398,7 @@ export default function Home() {
             {posts.map((post) => (
               <article
                 key={post.title}
-                className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+                className="overflow-hidden rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
               >
                 <div className="relative h-48 w-full">
                   <Image
@@ -388,21 +409,21 @@ export default function Home() {
                   />
                 </div>
                 <div className="p-7">
-                  <div className="flex items-center gap-2 text-sm text-slate-500">
-                    <span className="rounded-full bg-slate-100 px-3 py-1 font-semibold uppercase tracking-[0.2em] text-[#2B5FBF]">
+                  <div className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
+                    <span className="rounded-full bg-slate-100 dark:bg-slate-800 px-3 py-1 font-semibold uppercase tracking-[0.2em] text-[#2B5FBF] dark:text-[#60a5fa]">
                       {post.category}
                     </span>
                     <span>{post.readTime}</span>
                   </div>
-                  <h3 className="mt-4 text-xl font-semibold text-[#1A2A44]">
+                  <h3 className="mt-4 text-xl font-semibold text-[#1A2A44] dark:text-slate-100">
                     {post.title}
                   </h3>
-                  <p className="mt-4 text-base leading-8 text-slate-600">
+                  <p className="mt-4 text-base leading-8 text-slate-600 dark:text-slate-300">
                     {post.excerpt}
                   </p>
                   <Link
                     href={`/blog/${post.slug}`}
-                    className="mt-5 inline-flex text-sm font-semibold text-[#2B5FBF] hover:text-[#214c9e]"
+                    className="mt-5 inline-flex text-sm font-semibold text-[#2B5FBF] dark:text-[#60a5fa] hover:text-[#214c9e] dark:hover:text-[#93c5fd]"
                   >
                     Read article →
                   </Link>

@@ -39,17 +39,18 @@ export default function ServicesPage() {
     <SiteShell
       title="Our Services"
       intro="Beltline Global offers a wide range of services designed to support organizations at every stage of growth and operations."
+      bgImage="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=2000&q=80"
     >
       <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
         {services.map((service) => (
           <article
             key={service.title}
-            className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+            className="rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-8 shadow-sm"
           >
-            <h2 className="text-xl font-semibold text-[#1A2A44]">
+            <h2 className="text-xl font-semibold text-[#1A2A44] dark:text-slate-100">
               {service.title}
             </h2>
-            <p className="mt-4 text-base leading-8 text-slate-600">
+            <p className="mt-4 text-base leading-8 text-slate-600 dark:text-slate-300">
               {service.body}
             </p>
           </article>

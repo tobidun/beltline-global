@@ -14,6 +14,7 @@ export default function BlogPage() {
     <SiteShell
       title="Blog"
       intro="Read insights and updates focused on strategy, service delivery, and business growth."
+      bgImage="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=2000&q=80"
     >
       <BlogList posts={blogPosts} />
     </SiteShell>

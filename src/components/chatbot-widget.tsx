@@ -92,7 +92,7 @@ export function ChatbotWidget() {
   return (
     <div className="fixed bottom-4 right-4 z-40">
       {open ? (
-        <div className="w-[min(92vw,360px)] rounded-3xl border border-slate-200 bg-white shadow-2xl">
+        <div className="w-[min(92vw,360px)] rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xl">
           <div className="flex items-center justify-between rounded-t-3xl bg-[#1A2A44] px-4 py-3 text-white">
             <div>
               <p className="text-sm font-semibold">Beltline Assistant</p>
@@ -115,7 +115,7 @@ export function ChatbotWidget() {
                 key={message.id}
                 className={`max-w-[85%] rounded-2xl px-3 py-2 text-sm leading-6 ${
                   message.role === "assistant"
-                    ? "bg-slate-100 text-slate-700"
+                    ? "bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200"
                     : "ml-auto bg-[#2B5FBF] text-white"
                 }`}
               >
@@ -124,14 +124,14 @@ export function ChatbotWidget() {
             ))}
           </div>
 
-          <div className="border-t border-slate-200 p-3">
+          <div className="border-t border-slate-200 dark:border-slate-800 p-3">
             <div className="flex flex-wrap gap-2">
               {quickReplies.map((reply) => (
                 <button
                   key={reply}
                   type="button"
                   onClick={() => sendMessage(reply)}
-                  className="rounded-full border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-600 transition hover:border-[#2B5FBF] hover:text-[#2B5FBF]"
+                  className="rounded-full border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800 px-3 py-1.5 text-xs font-medium text-slate-600 dark:text-slate-300 transition hover:border-[#2B5FBF] dark:hover:border-[#60a5fa] hover:text-[#2B5FBF] dark:hover:text-[#60a5fa]"
                 >
                   {reply}
                 </button>
@@ -143,7 +143,7 @@ export function ChatbotWidget() {
                 value={input}
                 onChange={(event) => setInput(event.target.value)}
                 placeholder="Type your question..."
-                className="flex-1 rounded-full border border-slate-200 px-3 py-2 text-sm outline-none focus:border-[#2B5FBF]"
+                className="flex-1 rounded-full border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 px-3 py-2 text-sm outline-none focus:border-[#2B5FBF] text-slate-800 dark:text-slate-100"
               />
               <button
                 type="submit"
@@ -166,7 +166,7 @@ export function ChatbotWidget() {
       </button>
 
       {!open ? (
-        <p className="mt-2 text-right text-xs text-slate-500">
+        <p className="mt-2 text-right text-xs text-slate-500 dark:text-slate-400">
           {lastMessage.text}
         </p>
       ) : null}
