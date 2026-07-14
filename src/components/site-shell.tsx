@@ -33,6 +33,7 @@ export function SiteShell({
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
     const isDark = document.documentElement.classList.contains("dark");
     setTheme(isDark ? "dark" : "light");
@@ -61,18 +62,23 @@ export function SiteShell({
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-200 transition-colors duration-200">
       <header className="border-b border-slate-200 dark:border-slate-800 bg-white/90 dark:bg-slate-900/90 backdrop-blur sticky top-0 z-30">
         <div className="relative mx-auto flex max-w-7xl items-center justify-between px-2 py-5 lg:px-4">
-          <Link href="/" className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#1A2A44] dark:bg-[#2B5FBF] text-lg font-semibold text-white">
-              BG
-            </div>
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-[#1A2A44] dark:text-slate-100">
-                Beltline Global
-              </p>
-              <p className="text-xs text-slate-500 dark:text-slate-400">
-                Services Limited
-              </p>
-            </div>
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/BELTLINE GLOBAL SVG NAVY BLUE.svg"
+              alt="Beltline Global Services Limited"
+              width={200}
+              height={40}
+              className="h-10 w-auto dark:hidden object-contain"
+              priority
+            />
+            <Image
+              src="/BELTLINE GLOBAL SVG ROYAL BLUE.svg"
+              alt="Beltline Global Services Limited"
+              width={200}
+              height={40}
+              className="hidden dark:block h-10 w-auto object-contain"
+              priority
+            />
           </Link>
 
           <nav className="hidden items-center gap-7 text-sm font-medium text-slate-700 dark:text-slate-300 lg:flex">
@@ -260,11 +266,17 @@ export function SiteShell({
       <footer className="bg-[#1A2A44] py-12 text-white">
         <div className="mx-auto max-w-7xl px-4 lg:px-6">
           <div className="flex flex-col gap-8 border-b border-white/10 pb-8 md:flex-row md:items-start md:justify-between">
-            <div>
-              <p className="font-[family-name:var(--font-montserrat)] text-2xl font-semibold">
-                Beltline Global Services Limited
-              </p>
-              <p className="mt-3 text-sm text-slate-300">RC: 9648603</p>
+            <div className="flex flex-col gap-3">
+              <Link href="/" className="inline-block">
+                <Image
+                  src="/BELTLINE GLOBAL SVG NAVY BLUE.svg"
+                  alt="Beltline Global Services Limited"
+                  width={220}
+                  height={44}
+                  className="h-11 w-auto brightness-0 invert object-contain"
+                />
+              </Link>
+              <p className="text-sm text-slate-300">RC: 9648603</p>
             </div>
             <div className="grid gap-8 sm:grid-cols-3">
               <div>

@@ -42,6 +42,10 @@ export const metadata: Metadata = {
   },
   description:
     "Beltline Global Services Limited provides consulting, training, IT, logistics, trading, events, property development, and related support services across Nigeria.",
+  icons: {
+    icon: "/BELTLINE GLOBAL FAVICON NAVY BLUE SVG.svg",
+    apple: "/BELTLINE GLOBAL FAVICON NAVY BLUE SVG.svg",
+  },
   alternates: {
     canonical: "/",
   },
