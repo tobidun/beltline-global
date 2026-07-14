@@ -86,17 +86,6 @@ export default function ContactPage() {
                 <br />
                 Email: adam_i41@yahoo.com
               </p>
-              <div className="mt-6 flex flex-wrap gap-3 text-sm font-semibold">
-                <a href="tel:+2348125097090" className="rounded-full border border-white/20 bg-white/10 px-4 py-2 transition hover:bg-white/20">
-                  Call now
-                </a>
-                <a href="https://wa.me/2348125097090" target="_blank" rel="noreferrer" className="rounded-full border border-white/20 bg-white/10 px-4 py-2 transition hover:bg-white/20">
-                  WhatsApp
-                </a>
-              </div>
-              <div className="mt-6 rounded-2xl border border-white/10 bg-white/10 p-4 text-sm text-slate-200">
-                Office hours: Monday to Friday, 8:00am – 6:00pm
-              </div>
               <div className="mt-8 overflow-hidden rounded-2xl border border-white/10">
                 <iframe
                   title="Beltline Global office location"
