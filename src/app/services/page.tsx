@@ -1,36 +1,48 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { SiteShell } from "@/components/site-shell";
 
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Explore Beltline Global Services Limited's consulting, IT, logistics, supplies, events, and property service offerings.",
+    "Explore Beltline Global Services Limited's consulting, IT, logistics, supplies, events, property, and AI solution offerings for Nigerian organizations.",
 };
 
 const services = [
   {
     title: "Consulting",
-    body: "We provide business advisory, strategic planning, educational consultancy, training, project management, and strategy support to help organizations operate with clarity and confidence.",
+    body: "Business advisory, strategic planning, educational consultancy, training, project management, and AI-driven strategy support for growth-focused Nigerian organizations.",
+    href: "/consulting",
   },
   {
     title: "IT Services",
-    body: "Our technology support covers software development, website design, computer training, digital marketing, data analysis, and practical IT support services.",
+    body: "Software development, website design, computer training, digital marketing, data analysis, AI-powered content creation, and dependable IT support services for Nigerian businesses.",
+    href: "/it-services",
   },
   {
     title: "Logistics",
-    body: "We coordinate dependable transport, haulage, supply chain support, and distribution services tailored to operational needs and timelines.",
+    body: "Reliable transport, haulage, supply chain coordination, and distribution support delivered with accountability and speed across Nigeria.",
+    href: "/logistics",
   },
   {
     title: "Supplies",
-    body: "We handle general trading, import and export, and the sourcing of equipment, stationery, electronics, food items, clothing, and other merchandise.",
+    body: "General trading, import and export, and the sourcing of equipment, stationery, electronics, food items, clothing, and other merchandise for Nigerian organizations.",
+    href: "/supplies",
   },
   {
     title: "Events",
-    body: "From planning to coordination, we support memorable events with professional execution, venue sourcing, catering oversight, decorations, and hospitality services.",
+    body: "Professional event planning, venue sourcing, catering coordination, decorations, and hospitality services for memorable occasions across Nigeria.",
+    href: "/events",
   },
   {
     title: "Property",
-    body: "We provide property development support, real estate facilitation, facility management, cleaning, and building maintenance services with attention to detail and accountability.",
+    body: "Property development support, real estate facilitation, facility management, cleaning, and building maintenance services with attention to detail in the Nigerian market.",
+    href: "/property",
+  },
+  {
+    title: "AI Solutions",
+    body: "Autonomous AI agents, AI content creation, AI video production, AI-powered design, and data analytics services for Nigerian businesses.",
+    href: "/ai-solutions",
   },
 ];
 
@@ -38,14 +50,15 @@ export default function ServicesPage() {
   return (
     <SiteShell
       title="Our Services"
-      intro="Beltline Global offers a wide range of services designed to support organizations at every stage of growth and operations."
+      intro="Beltline Global offers a wide range of services designed to support Nigerian organizations at every stage of growth and operations."
       bgImage="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=2000&q=80"
     >
       <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
         {services.map((service) => (
-          <article
+          <Link
             key={service.title}
-            className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+            href={service.href}
+            className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
           >
             <h2 className="text-xl font-semibold text-[#1A2A44]">
               {service.title}
@@ -53,7 +66,7 @@ export default function ServicesPage() {
             <p className="mt-4 text-base leading-8 text-slate-600">
               {service.body}
             </p>
-          </article>
+          </Link>
         ))}
       </div>
     </SiteShell>

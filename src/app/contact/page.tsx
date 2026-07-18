@@ -79,12 +79,12 @@ export default function ContactPage() {
             <div className="relative z-10">
               <h2 className="text-2xl font-semibold">Our office</h2>
               <p className="mt-6 text-base leading-8 text-slate-300">
-                Shop 4, Bangor Estate Junction, Kulende, Ilorin, Kwara State.
+                Shop 4, Bangor Estate Junction, Ilorin, Kwara State.
               </p>
               <p className="mt-6 text-base leading-8 text-slate-300">
                 Phone: 08125097090
                 <br />
-                Email: adam_i41@yahoo.com
+                Email: info@beltlineglobal.com
               </p>
               <div className="mt-8 overflow-hidden rounded-2xl border border-white/10">
                 <iframe

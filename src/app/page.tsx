@@ -13,38 +13,51 @@ const services = [
   {
     title: "Consulting",
     description:
-      "Business advisory, strategic planning, project management, educational consultancy, training, and strategy support for growth-focused organizations.",
+      "Business advisory, strategic planning, educational consultancy, training, project management, and strategy support for growth-focused organizations.",
     icon: "💼",
+    href: "/consulting",
   },
   {
     title: "IT Services",
     description:
-      "Software development, website design, computer training, digital marketing, data analysis, and dependable IT support services.",
+      "Software development, website design, computer training, digital marketing, data analysis, AI-powered content creation, and dependable IT support services for Nigerian businesses.",
     icon: "💻",
+    href: "/it-services",
   },
   {
     title: "Logistics",
     description:
-      "Reliable transport, haulage, supply chain coordination, and distribution support delivered with accountability and speed.",
+      "Reliable transport, haulage, supply chain coordination, and distribution support delivered with accountability and speed across Nigeria.",
     icon: "🚚",
+    href: "/logistics",
   },
   {
     title: "Supplies",
     description:
-      "General trading, import and export, sourcing of equipment, stationery, electronics, food items, clothing, and other merchandise.",
+      "General trading, import and export, and the sourcing of equipment, stationery, electronics, food items, clothing, and other merchandise for Nigerian organizations.",
     icon: "📦",
+    href: "/supplies",
   },
   {
     title: "Events",
     description:
-      "Professional event planning, venue sourcing, catering coordination, decorations, and hospitality services for memorable occasions.",
+      "Professional event planning, venue sourcing, catering coordination, decorations, and hospitality services for memorable occasions across Nigeria.",
     icon: "🎉",
+    href: "/events",
   },
   {
     title: "Property",
     description:
-      "Property development support, real estate facilitation, facility management, cleaning, and building maintenance services with attention to detail.",
+      "Property development support, real estate facilitation, facility management, cleaning, and building maintenance services with attention to detail in the Nigerian market.",
     icon: "🏢",
+    href: "/property",
+  },
+  {
+    title: "AI Solutions",
+    description:
+      "Autonomous AI agents, AI content creation, AI video production, AI-powered design, and data analytics services for Nigerian businesses.",
+    icon: "🤖",
+    href: "/ai-solutions",
   },
 ];
 
@@ -171,7 +184,7 @@ const posts = [
 export default function Home() {
   return (
     <SiteShell
-      title="Your reliable partner for consulting, IT, logistics, and property solutions."
+      title="Your reliable partner for consulting, IT, logistics, and property solutions in Nigeria."
       intro="Beltline Global Services Limited is a registered company delivering excellence across Nigeria with a commitment to professionalism, integrity, and value."
       bgImage="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2000&q=80"
     >
@@ -266,7 +279,7 @@ export default function Home() {
                   {service.description}
                 </p>
                 <Link
-                  href="/services"
+                  href={service.href}
                   className="mt-5 inline-flex text-sm font-semibold text-[#2B5FBF] dark:text-[#60a5fa] hover:text-[#214c9e] dark:hover:text-[#93c5fd]"
                 >
                   Learn more →

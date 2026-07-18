@@ -40,7 +40,7 @@ function getAssistantReply(message: string) {
     lower.includes("location") ||
     lower.includes("address")
   ) {
-    return "Our office is located at Shop 4, Bangor Estate Junction, Kulende, Ilorin, Kwara State.";
+    return "Our office is located at Shop 4, Bangor Estate Junction, Ilorin, Kwara State.";
   }
 
   if (lower.includes("project") || lower.includes("work")) {
@@ -156,11 +156,10 @@ export function ChatbotWidget() {
               {messages.map((message) => (
                 <div
                   key={message.id}
-                  className={`max-w-[85%] rounded-2xl px-3 py-2 text-sm leading-6 ${
-                    message.role === "assistant"
+                  className={`max-w-[85%] rounded-2xl px-3 py-2 text-sm leading-6 ${message.role === "assistant"
                       ? "bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200"
                       : "ml-auto bg-[#2B5FBF] text-white"
-                  }`}
+                    }`}
                 >
                   {message.text}
                 </div>
