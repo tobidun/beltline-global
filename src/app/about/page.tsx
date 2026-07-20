@@ -121,21 +121,47 @@ const promises = [
   },
 ];
 
+const scienceBackground = [
+  "Cell Biology & Genetics – undergraduate foundation in cellular and genetic sciences",
+  "Molecular Biology – postgraduate specialization at the University of Lagos",
+  "Clinical Biochemistry – master's degree from the United Kingdom",
+  "Applied research experience across laboratory, diagnostic, and health science settings",
+];
+
 export default function AboutPage() {
   return (
     <SiteShell
       title="About Us – Certified Expertise, Global Standards"
-      intro="Professional services backed by world-class certifications."
+      intro="Professional services backed by world-class certifications and scientific expertise."
       bgImage="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=2000&q=80"
     >
       <div className="space-y-16">
         <section className="rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-8 shadow-sm">
           <p className="text-lg italic leading-8 text-slate-600 dark:text-slate-300">
-            &ldquo;Professional services backed by world-class certifications.&rdquo;
+            &ldquo;Professional services backed by world-class certifications and scientific expertise.&rdquo;
           </p>
           <p className="mt-4 text-base leading-8 text-slate-600 dark:text-slate-300">
-            We are a multidisciplinary professional services firm with a commitment to excellence, innovation, and accountability. Our team holds prestigious certifications from Vanderbilt University, MIT World Class Enterprise, Adobe, and Microsoft, enabling us to deliver cutting-edge solutions across consulting, IT, logistics, supplies, events, and property.
+            We are a multidisciplinary professional services firm with a commitment to excellence, innovation, and accountability. Our team holds prestigious certifications from Vanderbilt University, MIT World Class Enterprise, Adobe, and Microsoft, enabling us to deliver cutting-edge solutions across consulting, IT, logistics, supplies, events, property, and health & science.
           </p>
+        </section>
+
+        <section>
+          <h2 className="text-3xl font-semibold text-[#1A2A44] dark:text-slate-100">
+            Our Science & Health Credentials
+          </h2>
+          <p className="mt-4 text-base leading-8 text-slate-600 dark:text-slate-300">
+            Our health and science services are grounded in rigorous academic and research experience, including:
+          </p>
+          <div className="mt-6 grid gap-4 sm:grid-cols-2">
+            {scienceBackground.map((item) => (
+              <div
+                key={item}
+                className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 p-5 text-sm leading-7 text-slate-600 dark:text-slate-300"
+              >
+                {item}
+              </div>
+            ))}
+          </div>
         </section>
 
         <section>

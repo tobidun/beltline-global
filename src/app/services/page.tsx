@@ -5,7 +5,7 @@ import { SiteShell } from "@/components/site-shell";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Explore Beltline Global Services Limited's consulting, IT, logistics, supplies, events, property, and AI solution offerings for Nigerian organizations.",
+    "Explore Beltline Global Services Limited's consulting, IT, logistics, supplies, events, property, health and science, and AI solution offerings.",
 };
 
 const services = [
@@ -38,6 +38,11 @@ const services = [
     title: "Property",
     body: "Property development support, real estate facilitation, facility management, cleaning, and building maintenance services with attention to detail in the Nigerian market.",
     href: "/property",
+  },
+  {
+    title: "Health & Science",
+    body: "Health research advisory, scientific consulting, laboratory support, and science-based solutions for health organizations and research institutions.",
+    href: "/health-science",
   },
   {
     title: "AI Solutions",

@@ -20,42 +20,49 @@ const services = [
   {
     title: "IT Services",
     description:
-      "Software development, website design, computer training, digital marketing, data analysis, AI-powered content creation, and dependable IT support services for Nigerian businesses.",
+      "Software development, website design, computer training, digital marketing, data analysis, AI-powered content creation, and dependable IT support services.",
     icon: "💻",
     href: "/it-services",
   },
   {
     title: "Logistics",
     description:
-      "Reliable transport, haulage, supply chain coordination, and distribution support delivered with accountability and speed across Nigeria.",
+      "Reliable transport, haulage, supply chain coordination, and distribution support delivered with accountability and speed.",
     icon: "🚚",
     href: "/logistics",
   },
   {
     title: "Supplies",
     description:
-      "General trading, import and export, and the sourcing of equipment, stationery, electronics, food items, clothing, and other merchandise for Nigerian organizations.",
+      "General trading, import and export, and the sourcing of equipment, stationery, electronics, food items, clothing, and other merchandise.",
     icon: "📦",
     href: "/supplies",
   },
   {
     title: "Events",
     description:
-      "Professional event planning, venue sourcing, catering coordination, decorations, and hospitality services for memorable occasions across Nigeria.",
+      "Professional event planning, venue sourcing, catering coordination, decorations, and hospitality services for memorable occasions.",
     icon: "🎉",
     href: "/events",
   },
   {
     title: "Property",
     description:
-      "Property development support, real estate facilitation, facility management, cleaning, and building maintenance services with attention to detail in the Nigerian market.",
+      "Property development support, real estate facilitation, facility management, cleaning, and building maintenance services with attention to detail.",
     icon: "🏢",
     href: "/property",
   },
   {
+    title: "Health & Science",
+    description:
+      "Health research advisory, scientific consulting, laboratory support, and science-based solutions for organizations.",
+    icon: "🔬",
+    href: "/health-science",
+  },
+  {
     title: "AI Solutions",
     description:
-      "Autonomous AI agents, AI content creation, AI video production, AI-powered design, and data analytics services for Nigerian businesses.",
+      "Autonomous AI agents, AI content creation, AI video production, AI-powered design, and data analytics services.",
     icon: "🤖",
     href: "/ai-solutions",
   },

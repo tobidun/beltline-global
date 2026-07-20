@@ -14,6 +14,7 @@ const navItems = [
   { href: "/supplies", label: "Supplies" },
   { href: "/events", label: "Events" },
   { href: "/property", label: "Property" },
+  { href: "/health-science", label: "Health & Science" },
   { href: "/ai-solutions", label: "AI Solutions" },
   { href: "/about", label: "About" },
   { href: "/blog", label: "Blog" },
@@ -94,7 +95,7 @@ export function SiteShell({
               alt="Beltline Global Services Limited"
               width={200}
               height={40}
-              className="h-10 w-auto dark:hidden object-contain"
+              className="h-8 w-auto dark:hidden object-contain lg:h-10"
               priority
             />
             <Image
@@ -102,7 +103,7 @@ export function SiteShell({
               alt="Beltline Global Services Limited"
               width={200}
               height={40}
-              className="hidden dark:block h-10 w-auto object-contain"
+              className="hidden dark:block h-8 w-auto object-contain lg:h-10"
               priority
             />
           </Link>
