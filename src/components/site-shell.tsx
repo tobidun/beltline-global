@@ -284,9 +284,16 @@ export function SiteShell({
                   width={220}
                   height={44}
                   className="h-11 w-auto brightness-0 invert object-contain"
+                  priority
                 />
               </Link>
-              <p className="text-sm text-slate-300">RC: 9648603</p>
+              <p className="mt-2 text-sm text-slate-300">RC: 9648603</p>
+              <p className="mt-2 text-xs text-slate-400">
+                🧬 MSc Molecular Biology | BSc Cell Biology & Genetics
+              </p>
+              <p className="text-xs text-slate-400">
+                🤖 7 AI Certifications (Adobe, Microsoft, Vanderbilt, MIT)
+              </p>
             </div>
             <div className="grid gap-8 sm:grid-cols-3">
               <div>
@@ -356,10 +363,24 @@ export function SiteShell({
                 </ul>
               </div>
             </div>
+            <div className="mt-8 rounded-3xl border border-white/10 bg-white/5 p-6">
+              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-slate-400">
+                Contact
+              </p>
+              <p className="mt-3 text-sm leading-7 text-slate-300">
+                Shop 4, Bangor Estate Junction, Ilorin, Kwara State
+              </p>
+              <p className="text-sm leading-7 text-slate-300">
+                Phone: 08125097090
+              </p>
+              <p className="text-sm leading-7 text-slate-300">
+                Email: adam_i41@yahoo.com
+              </p>
+            </div>
+            <p className="mt-8 text-sm text-slate-400">
+              © 2026 Beltline Global Services Limited. All rights reserved.
+            </p>
           </div>
-          <p className="mt-8 text-sm text-slate-400">
-            © 2026 Beltline Global Services Limited. All rights reserved.
-          </p>
         </div>
       </footer>
     </div>
